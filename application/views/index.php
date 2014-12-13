@@ -21,7 +21,8 @@ Website: http://thevectorlab.net/
         <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>assets/css/style_responsive.css" rel="stylesheet" />
         <link href="<?php echo base_url() ?>assets/css/style_default.css" rel="stylesheet" id="style_color" />
-
+        <link href="<?php echo base_url()?>assets/assets/bootstrap-datepicker/css/datepicker.css"/>
+        
         <link href="<?php echo base_url() ?>assets/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/assets/uniform/css/uniform.default.css" />
         <link href="<?php echo base_url() ?>assets/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
@@ -199,6 +200,8 @@ Website: http://thevectorlab.net/
         <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/uniform/jquery.uniform.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/data-tables/jquery.dataTables.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/data-tables/DT_bootstrap.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
 
         <script src="<?php echo base_url() ?>/assets/js/scripts.js"></script>
         <script>
