@@ -7,25 +7,74 @@
 
             </div>
             <div class="widget-body">
-                <form method="post" action="<?php echo site_url('dashboard/tambahkelas') ?>">
-                    <table>
+                <table>
+                    <form method="post" action="<?php echo site_url('dashboard/tambahkelas') ?>">
+                        <tr>
+                            <td><div class="control-label"><h4>Akun Member</h4></div></td>
+
+                        </tr>
                         <div class="control-group">
                             <tr>
-                                <td><label class="control-label">Nama Kelas</label></td>
+                                <td><label class="control-label">Username</label></td>
                                 <td> : </td>
                                 <td>
                                     <div class="controls">
-                                        <input type="text"  class="input-medium" name="kelas_nm">
+                                        <input type="text"  class="input-medium" name="member_username">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="3"><input type="submit" name="submit" class="btn blue"><i class="icon-ok"></i> Save</button></td>
-                            </tr>
-
                         </div>
-                    </table>
-                </form>
+                        <div class="control-group">
+                            <tr>
+                                <td><label class="control-label">Password</label></td>
+                                <td> : </td>
+                                <td>
+                                    <div class="controls">
+                                        <input type="password"  class="input-medium" name="member_password">
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <tr>
+                            <td>
+                                <label class="control-label"><h4>Data Pribadi</h4></label>
+                            </td>
+                        </tr>
+
+
+                        <div class="control-group">
+                            <tr>
+                                <td><label class="control-label">Nama Member</label></td>
+                                <td> : </td>
+                                <td>
+                                    <div class="control">
+                                        <input type="text" class="input-medium" name="member_nm">
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="control-group">
+                            <tr>
+                                <td><label class="control-label">E-Mail</label></td>
+                                <td> : </td>
+                                <td>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="member_email">
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="control-group">
+                            <tr>
+                                <td><label class="control-label">Tempat/Tanggal Lahir</label></td>
+                                <td> : </td>
+                                <td><div class="controls">
+                                        <input type="text" class="input-small" name="member_tmplahir"> / <input type="text" class="m-ctrl-medium date-picker" name="member_tgllahir"></td>
+                                    </div>
+                            </tr>
+                        </div>
+                    </form>
+                </table>
             </div>
         </div>   
 

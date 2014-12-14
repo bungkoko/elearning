@@ -107,6 +107,8 @@ class dashboard extends CI_Controller {
                 $data['error'] = validation_errors();
             endif;
         endif;
+        $data['content'] = "management/_member/_member_add";
+        $this->load->view('index', $data);
     }
 
 }
