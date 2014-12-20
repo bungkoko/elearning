@@ -15,7 +15,7 @@
 
             </div>
             <div class="widget-body">
-                <form method="post" action="<?php echo site_url('dashboard/tambahkelas') ?>">
+                <form method="post" action="<?php echo site_url('kelas/create') ?>">
                     <table>
                         <div class="control-group">
                             <tr>

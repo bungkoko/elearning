@@ -17,9 +17,9 @@ class User_library {
 			return false;
 		else:
 			$this->ci->db->join('user_role', 'user_role_user_role_kode = user_role_kode');
-			$this->ci->db->where('member_username', $user_id);
+			$this->ci->db->where('siswa_username', $user_id);
 			//$this->ci->db->where('user_approved', 'y');
-			$result =  $this->ci->db->get('member')->num_rows();
+			$result =  $this->ci->db->get('siswa')->num_rows();
 			if ($result == 0):
 				return false;
 			else :

@@ -1,217 +1,205 @@
+
 <!DOCTYPE html>
-<!--
-Template Name: Admin Lab Dashboard build with Bootstrap v2.3.1
-Template Version: 1.2
-Author: Mosaddek Hossain
-Website: http://thevectorlab.net/
--->
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-    <!-- BEGIN HEAD -->
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-        <link href="<?php echo base_url(); ?>assets/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="<?php echo base_url(); ?>assets/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
-        <link href="<?php echo base_url(); ?>assets/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
-        <link href="<?php echo base_url(); ?>assets/css/style_responsive.css" rel="stylesheet" />
-        <link href="<?php echo base_url() ?>assets/css/style_default.css" rel="stylesheet" id="style_color" />
-        <link href="<?php echo base_url()?>assets/assets/bootstrap-datepicker/css/datepicker.css"/>
-        
-        <link href="<?php echo base_url() ?>assets/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/assets/uniform/css/uniform.default.css" />
-        <link href="<?php echo base_url() ?>assets/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-        <link href="<?php echo base_url() ?>assets/assets/jqvmap/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
-
-    </head>
-    <!-- END HEAD -->
-    <!-- BEGIN BODY -->
-    <body class="fixed-top">
-        <!-- BEGIN HEADER -->
-        <div id="header" class="navbar navbar-inverse navbar-fixed-top">
-            <!-- BEGIN TOP NAVIGATION BAR -->
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <!-- BEGIN LOGO -->
-                    <a class="brand" href="index.html">
-                        <img src="img/logo.png" alt="Admin Lab" />
-                    </a>
-                    <!-- END LOGO -->
-                    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                    <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="arrow"></span>
-                    </a>
-                    <!-- END RESPONSIVE MENU TOGGLER -->
-
-
-                    <div class="top-nav ">
-                        <ul class="nav pull-right top-menu" >
-
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <li class="dropdown">
-                                <?php if ($this->user_library->is_logged() == true): ?>
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="img/avatar1_small.jpg" alt="">
-                                        <span class="username"><?php echo $this->session->userdata('user_display_name') ?></span>
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-                                        <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-                                        <li><a href="#"><i class="icon-calendar"></i> Calendar</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="<?php echo site_url('auth/logout') ?>"><i class="icon-key"></i> Log Out</a></li>
-                                    </ul>
-                                <?php else: ?>
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-lock"></i>
-                                        Login</a>
-
-                                    <ul class="dropdown-menu extended inbox">
-
-                                        <li>
-                                            <p>User Login</p>
-                                        </li>
-
-                                        <li>
-
-                                            <div class="control-wrap">
-                                                <form id="loginform" class="form-vertical no-padding no-margin" method="POST" action="<?php echo site_url('auth/login') ?>">
-                                                    <div class="control-group" style="padding-top: 10px;padding-left: 15px;padding-right: 15px">
-                                                        <div class="controls">
-                                                            <div class="input-prepend">
-                                                                <span class="add-on"><i class="icon-user"></i></span><input style="width: 77%;" id="input-username" type="text" name="username" placeholder="Username" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="control-group" style="padding-left: 15px;padding-right: 15px">
-                                                        <div class="controls">
-                                                            <div class="input-prepend">
-                                                                <span class="add-on"><i class="icon-key"></i></span><input style="width: 77%;" id="input-password" name="password" type="password" placeholder="Password" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <input type="submit" id="login-btn" class="btn btn-block login-btn" value="Login" />
-                                                </form>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                <?php endif; ?>
-                            </li>
-                            <!-- END USER LOGIN DROPDOWN -->
-                        </ul>
-                        <!-- END TOP NAVIGATION MENU -->
-                    </div>
+<html lang="en">
+<head>
+    <title>Dashboard | Dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="images/icons/favicon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png">
+    <!--Loading bootstrap css-->
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/jquery-ui-1.10.4.custom.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/animate.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/all.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/main.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/style-responsive.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/zabuto_calendar.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/pace.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/jquery.news-ticker.css">
+</head>
+<body>
+    <div>
+        <!--BEGIN BACK TO TOP-->
+        <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
+        <!--END BACK TO TOP-->
+        <!--BEGIN TOPBAR-->
+        <div id="header-topbar-option-demo" class="page-header-topbar">
+            <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">e-Learning</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
+            <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
+                
+                <form id="topbar-search" action="" method="" class="hidden-sm hidden-xs">
+                    <div class="input-icon right text-white"><a href="#"><i class="fa fa-search"></i></a><input type="text" placeholder="Search here..." class="form-control text-white"/></div>
+                </form>
+                <div class="news-update-box hidden-xs"><span class="text-uppercase mrm pull-left text-white">News:</span>
+                    <ul id="news-update" class="ticker list-unstyled">
+                        <li><strong>Welcome e-Learning SMP Manyaran</strong></li>
+                    </ul>
                 </div>
-            </div>
-            <!-- END TOP NAVIGATION BAR -->
-        </div>
-        <!-- END HEADER -->
-        <!-- BEGIN CONTAINER -->
-        <div id="container" class="row-fluid">
-            <!-- BEGIN SIDEBAR -->
-            <div id="sidebar" class="nav-collapse collapse">
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                <div class="sidebar-toggler hidden-phone"></div>
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-
-                <!-- BEGIN SIDEBAR MENU -->
-                <ul class="sidebar-menu">
-                    <li class="has-sub active">
-                        <a href="javascript:;" class="">
-                            <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
-                            <span class="arrow"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="index.html">Dashboard 1</a></li>
-                            <li class="active"><a class="" href="index_2.html">Dashboard 2</a></li>
-
+                <ul class="nav navbar navbar-top-links navbar-right mbn">
+                  
+                    <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs">Robert John</span>&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-user pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i>My Profile</a></li>
+                            <li><a href="#"><i class="fa fa-calendar"></i>My Calendar</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i>My Inbox<span class="badge badge-danger">3</span></a></li>
+                            <li><a href="#"><i class="fa fa-tasks"></i>My Tasks<span class="badge badge-success">7</span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-lock"></i>Lock Screen</a></li>
+                            <li><a href="Login.html"><i class="fa fa-key"></i>Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
-                <!-- END SIDEBAR MENU -->
             </div>
-            <!-- END SIDEBAR -->
-            <!-- BEGIN PAGE -->
-            <div id="main-content">
-                <div class="container-fluid">
-                    <!-- BEGIN PAGE HEADER-->
-
-                    <!-- BEGIN PAGE CONTENT-->
-                    <div id="page">
-
-                        <?php $this->load->view($content); ?>
+        </nav>
+          
+        </div>
+        <!--END TOPBAR-->
+        <div id="wrapper">
+            <!--BEGIN SIDEBAR MENU-->
+            <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
+                data-position="right" class="navbar-default navbar-static-side">
+            <div class="sidebar-collapse menu-scroll">
+                <ul id="side-menu" class="nav">
+                    
+                     <div class="clearfix"></div>
+                    <li class="active"><a href="dashboard.html"><i class="fa fa-tachometer fa-fw">
+                        <div class="icon-bg bg-orange"></div>
+                    </i><span class="menu-title">Dashboard</span></a></li>
+                    <li><a href="Layout.html"><i class="fa fa-desktop fa-fw">
+                        <div class="icon-bg bg-pink"></div>
+                    </i><span class="menu-title">Managemen Siswa</span></a>
+                       
+                    </li>
+                    <li><a href="UIElements.html"><i class="fa fa-send-o fa-fw">
+                        <div class="icon-bg bg-green"></div>
+                    </i><span class="menu-title">Managemen Guru</span></a>
+                       
+                    </li>
+                    <li><a href="Forms.html"><i class="fa fa-edit fa-fw">
+                        <div class="icon-bg bg-violet"></div>
+                    </i><span class="menu-title">Managemen Kelas</span></a>
+                      
+                    </li>
+                    <li><a href="Tables.html"><i class="fa fa-th-list fa-fw">
+                        <div class="icon-bg bg-blue"></div>
+                    </i><span class="menu-title">Managemen Mata Pelajaran</span></a>
+                          
+                    </li>
+                    <li><a href="DataGrid.html"><i class="fa fa-database fa-fw">
+                        <div class="icon-bg bg-red"></div>
+                    </i><span class="menu-title">Managemen Materi</span></a>
+                      
+                    </li>
+                    <li><a href="Pages.html"><i class="fa fa-file-o fa-fw">
+                        <div class="icon-bg bg-yellow"></div>
+                    </i><span class="menu-title">Managemen Tugas</span></a>
+                       
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+            <!--END SIDEBAR MENU-->
+            <!--BEGIN CHAT FORM-->
+           
+            <!--BEGIN PAGE WRAPPER-->
+            <div id="page-wrapper">
+                <!--BEGIN TITLE & BREADCRUMB PAGE-->
+                <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                    <div class="page-header pull-left">
+                        <div class="page-title">
+                            Dashboard</div>
                     </div>
-
-
-                    <!--END:BODY-->
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                        <li class="hidden"><a href="#">Dashboard</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                    <div class="clearfix">
+                    </div>
                 </div>
-                <!-- END PAGE CONTENT-->
+                <!--END TITLE & BREADCRUMB PAGE-->
+                <!--BEGIN CONTENT-->
+                <div class="page-content">
+                    <div id="tab-general">
+                        <div id="sum_box" class="row mbl">
+                            <?php $this->load->view($content);?>
+                        </div>
+                    </div>
+                </div>
+                <!--END CONTENT-->
+                <!--BEGIN FOOTER-->
+                <div id="footer">
+                    <div class="copyright">
+                        <a href="http://themifycloud.com">2014 © KAdmin Responsive Multi-Purpose Template</a></div>
+                </div>
+                <!--END FOOTER-->
             </div>
+            <!--END PAGE WRAPPER-->
         </div>
-        <!-- END PAGE CONTAINER-->
+    </div>
+    <script src="<?php echo base_url()?>assets/script/jquery-1.10.2.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery-migrate-1.2.1.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery-ui.js"></script>
+    <script src="<?php echo base_url()?>assets/script/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/bootstrap-hover-dropdown.js"></script>
+    <script src="<?php echo base_url()?>assets/script/html5shiv.js"></script>
+    <script src="<?php echo base_url()?>assets/script/respond.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.metisMenu.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.slimscroll.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.cookie.js"></script>
+    <script src="<?php echo base_url()?>assets/script/icheck.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/custom.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.news-ticker.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.menu.js"></script>
+    <script src="<?php echo base_url()?>assets/script/pace.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/holder.js"></script>
+    <script src="<?php echo base_url()?>assets/script/responsive-tabs.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.categories.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.pie.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.tooltip.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.resize.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.fillbetween.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.stack.js"></script>
+    <script src="<?php echo base_url()?>assets/script/jquery.flot.spline.js"></script>
+    <script src="<?php echo base_url()?>assets/script/zabuto_calendar.min.js"></script>
+    <script src="<?php echo base_url()?>assets/script/index.js"></script>
+    <!--LOADING SCRIPTS FOR CHARTS-->
+    <script src="<?php echo base_url()?>assets/script/highcharts.js"></script>
+    <script src="<?php echo base_url()?>assets/script/data.js"></script>
+    <script src="<?php echo base_url()?>assets/script/drilldown.js"></script>
+    <script src="<?php echo base_url()?>assets/script/exporting.js"></script>
+    <script src="<?php echo base_url()?>assets/script/highcharts-more.js"></script>
+    <script src="<?php echo base_url()?>assets/script/charts-highchart-pie.js"></script>
+    <script src="<?php echo base_url()?>assets/script/charts-highchart-more.js"></script>
+    <!--CORE JAVASCRIPT-->
+    <script src="<?php echo base_url()?>assets/script/main.js"></script>
+    <script>        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-145464-12', 'auto');
+        ga('send', 'pageview');
 
-        <!-- BEGIN FOOTER -->
-        <div id="footer">
-            2013 &copy; Admin Lab Dashboard.
-            <div class="span pull-right">
-                <span class="go-top"><i class="icon-arrow-up"></i></span>
-            </div>
-        </div>
-        <!-- END FOOTER -->
-        <!-- BEGIN JAVASCRIPTS -->
-        <!-- Load javascripts at bottom, this will reduce page load time -->
-        <script src="<?php echo base_url() ?>/assets/js/jquery-1.8.3.min.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url() ?>/assets/js/jquery.blockui.js"></script>
-        <script src="<?php echo base_url() ?>/assets/js/jquery.cookie.js"></script>
-        <!-- ie8 fixes -->
-        <!--[if lt IE 9]>
-        <script src="js/excanvas.js"></script>
-        <script src="js/respond.js"></script>
-        <![endif]-->
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/jquery-knob/js/jquery.knob.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/flot/jquery.flot.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/flot/jquery.flot.resize.js"></script>
 
-        <script src="<?php echo base_url() ?>/assets/assets/flot/jquery.flot.pie.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/flot/jquery.flot.stack.js"></script>
-        <script src="<?php echo base_url() ?>/assets/assets/flot/jquery.flot.crosshair.js"></script>
-
-        <script src="<?php echo base_url() ?>/assets/js/jquery.peity.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/uniform/jquery.uniform.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/data-tables/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/data-tables/DT_bootstrap.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>/assets/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
-
-        <script src="<?php echo base_url() ?>/assets/js/scripts.js"></script>
-        <script>
-            jQuery(document).ready(function () {
-                // initiate layout and plugins
-                App.setMainPage(true);
-                App.init();
-            });
-        </script>
-        <!-- END JAVASCRIPTS -->
-    </body>
-    <!-- END BODY -->
+</script>
+</body>
 </html>

@@ -1,124 +1,83 @@
 
 <!DOCTYPE html>
-<!--
-Template Name: Admin Lab Dashboard build with Bootstrap v2.3.1
-Template Version: 1.2
-Author: Mosaddek Hossain
-Website: http://thevectorlab.net/
--->
-
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-<!-- BEGIN HEAD -->
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Login page</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta content="" name="description" />
-  <meta content="" name="author" />
-  <link href="<?php echo base_url(); ?>assets/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="<?php echo base_url(); ?>assets/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
-  <link href="<?php echo base_url(); ?>assets/css/style_responsive.css" rel="stylesheet" />
-  <link href="<?php echo base_url(); ?>assets/css/style_default.css" rel="stylesheet" id="style_color" />
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/animate.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/all.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/main.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/styles/style-responsive.css">
 </head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<body id="login-body">
-  <div class="login-header">
-      <!-- BEGIN LOGO -->
-      <div id="logo" class="center">
-          <img src="img/logo.png" alt="logo" class="center" />
-      </div>
-      <!-- END LOGO -->
-  </div>
-
-  <!-- BEGIN LOGIN -->
-  <div id="login">
-    <!-- BEGIN LOGIN FORM -->
-    <form id="loginform" class="form-vertical no-padding no-margin" method="POST" action="<?php echo site_url('auth/login')?>">
-      <div class="lock">
-          <i class="icon-lock"></i>
-      </div>
-      <div class="control-wrap">
-          <h4>User Login</h4>
-          <div class="control-group">
-              <div class="controls">
-                  <div class="input-prepend">
-                      <span class="add-on"><i class="icon-user"></i></span><input id="input-username" type="text" name="username" placeholder="Username" />
-                  </div>
-              </div>
-          </div>
-          <div class="control-group">
-              <div class="controls">
-                  <div class="input-prepend">
-                      <span class="add-on"><i class="icon-key"></i></span><input id="input-password" name="password" type="password" placeholder="Password" />
-                  </div>
-              </div>
-          </div>
-         <div class="control-group">
-             <div class="controls">
-                 <div class="input-prepend">
-                     <span class="add-on"><i class="icon-legal"></i></span>
-                     <select id="input-medium m-wrap" name="level" >
-                         <option value="admin">admin</option>
-                         <option value="guru">guru</option>
-                         <option value="siswa" >siswa</option>
-                     </select>
-                 </div>
-                     
-             </div>
-                  <div class="mtop10">
-                      <div class="block-hint pull-left small">
-                          <input type="checkbox" id=""> Remember Me
-                      </div>
-                      <div class="block-hint pull-right">
-                          <a href="javascript:;" class="" id="forget-password">Forgot Password?</a>
-                      </div>
-      
-                  <div class="clearfix space5"></div>
-              </div>
-      </div>
-
-          </div>
-      </div>
-
-      <input type="submit" id="login-btn" class="btn btn-block login-btn" value="Login" />
-    </form>
-    <!-- END LOGIN FORM -->        
-    <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form id="forgotform" class="form-vertical no-padding no-margin hide" action="index.html">
-      <p class="center">Enter your e-mail address below to reset your password.</p>
-      <div class="control-group">
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on"><i class="icon-envelope"></i></span><input id="input-email" type="text" placeholder="Email"  />
-          </div>
+<body style="background: url('<?php base_url()?>assets/images/bg/bg.png') center center fixed;">
+    <div class="page-form">
+        <div class="panel panel-blue">
+            <div class="panel-body pan">
+                <form action="<?php echo site_url('auth/login')?>" class="form-horizontal" method='post'>
+                <div class="form-body pal">
+                    <div class="col-md-12 text-center">
+                        <h1 style="margin-top: -90px; font-size: 48px;">
+                            KAdmin</h1>
+                        <br />
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <img src="<?php echo base_url()?>assets/images/avatar/profile-pic.png" class="img-responsive" style="margin-top: -35px;" />
+                        </div>
+                        <div class="col-md-9 text-center">
+                            <h1>
+                                Hold on, please.</h1>
+                            <br />
+                            <p>
+                                Just sign in and we’ll send you on your way</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName" class="col-md-3 control-label">
+                            Username:</label>
+                        <div class="col-md-9">
+                            <div class="input-icon right">
+                                <i class="fa fa-user"></i>
+                                <input id="inputName" name='siswa_username' type="text" placeholder="" class="form-control" /></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-md-3 control-label">
+                            Password:</label>
+                        <div class="col-md-9">
+                            <div class="input-icon right">
+                                <i class="fa fa-lock"></i>
+                                <input id="inputPassword" name='siswa_password' type="text" placeholder="" class="form-control" /></div>
+                        </div>
+                    </div>
+                    <div class="form-group mbn">
+                        <div class="col-lg-12" align="right">
+                            <div class="form-group mbn">
+                                <div class="col-lg-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="submit" name='submit' class="btn btn-default"/>
+                                        Sign In
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
         </div>
-        <div class="space20"></div>
-      </div>
-      <input type="button" id="forget-btn" class="btn btn-block login-btn" value="Submit" />
-    </form>
-    <!-- END FORGOT PASSWORD FORM -->
-  </div>
-  <!-- END LOGIN -->
-  <!-- BEGIN COPYRIGHT -->
-  <div id="login-copyright">
-      2013 &copy; Admin Lab Dashboard.
-  </div>
-  <!-- END COPYRIGHT -->
-  <!-- BEGIN JAVASCRIPTS -->
-  <script src="<?php echo base_url(); ?>assets/js/jquery-1.8.3.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/jquery.blockui.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
-  <script>
-    jQuery(document).ready(function() {     
-      App.initLogin();
-    });
-  </script>
-  <!-- END JAVASCRIPTS -->
+        <div class="col-lg-12 text-center">
+            <p>
+                Forgot Something ?
+            </p>
+        </div>
+    </div>
 </body>
-<!-- END BODY -->
 </html>

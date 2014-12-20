@@ -357,8 +357,10 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-$config['upload_path_photo'] = 'upload/profile/';
-$config['upload_path_materi'] = 'upload/materi/';
+$config['absolutePathFolder'] = $_SERVER['DOCUMENT_ROOT'].'/elearning/';
+
+$config['upload_path_photo'] = '/upload/profile/';
+$config['upload_path_materi'] = '/upload/materi/';
 
 $config['allowed_types'] = 'jpg|png|jpeg|gif';
 $config['allowed_types_doc'] = 'pdf|doc|docx';

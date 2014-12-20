@@ -1,41 +1,41 @@
-<div class="row-fluid">
-    <div class="span12">
 
-        <h3 class="page-title">
-            Dashboard
-            <small><?php echo $this->session->userdata('user_role') ?></small>
-    </div>                           </h3>
-</div>
-<div class="row-fluid">
-    <div class="span12">
-        <!-- BEGIN GRID SAMPLE PORTLET-->
-        <div class="widget">
-            <div class="widget-title">
-                <h4><i class="icon-reorder"></i>Grid 12</h4>
-                <span class="tools">
-                    <a href="javascript:;" class="icon-chevron-down"></a>
-                    <a href="javascript:;" class="icon-remove"></a>
-                </span>
-            </div>
-            <div class="widget-body">
-                Selamat Datang Saudara <?php echo $this->session->userdata('user_display_name') ?> dan anda sebagai <?php echo $this->session->userdata('user_role') ?>
-            </div>
-        </div>
-        <!-- END GRID SAMPLE PORTLET-->
-    </div>
-</div>
-
-<!--<div class="widget">
-    <div class="widget-title">
-        <h4><i class="icon-globe"></i>Blank Page</h4>
-        <span class="tools">
-            <a href="javascript:;" class="icon-chevron-down"></a>
-            <a href="javascript:;" class="icon-remove"></a>
-        </span>                    
-    </div>
-    <div class="widget-body">
-        Selamat Datang Saudara <?php echo $this->session->userdata('user_display_name') ?> dan anda sebagai <?php echo $this->session->userdata('user_role') ?>
-    </div>
-</div>
-</div>-->
-
+                            <div class="col-lg-4">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="profile">
+                                            <div style="margin-bottom: 15px" class="row">
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <h2>
+                                                        <?php $this->session->userdata('user_display_name')?></h2>
+                                                    <p>
+                                                        <strong>About:</strong> Web Designer / UI.</p>
+                                                    <p>
+                                                        <strong>Hobbies:</strong> Read, out with friends, listen to music, draw and learn
+                                                        new things.</p>
+                                                    <p>
+                                                        <strong class="mrs">Skills:</strong><span class="label label-green mrs">html5</span><span
+                                                            class="label label-green mrs">css3</span><span class="label label-green mrs">jquery</span></p>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-4 text-center">
+                                                    <figure><img src="images/avatar/128.jpg" alt="" style="display: inline-block" class="img-responsive img-circle"/>
+                                                    <figcaption class="ratings"><p><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star-o"></span></a></p></figcaption>
+                                                </figure>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="col-lg-8">
+                                <div class="portlet box">
+                                    <div class="portlet-header">
+                                        <div class="caption">
+                                            Welcome to Dashboard</div>
+                                    </div>
+                                    <div style="overflow: hidden;" class="portlet-body">
+                                        Selamat Datang <strong><?php $this->session->userdata('user_display_name')?></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

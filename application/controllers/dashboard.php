@@ -11,7 +11,11 @@ class dashboard extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('kelas_model');
-        $this->load->model('member_model');
+        $this->load->model('siswa_model');
+        //$this->load->model('guru_model');g
+       // if($this->session->userdata('user_logged')==false){
+         //   redirect('auth');
+        //}
     }
 
     function index() {
@@ -21,7 +25,17 @@ class dashboard extends CI_Controller {
         $this->load->view('index', $data);
     }
 
-    function kelas() {
+    function profile($user){
+        $data['content']='Dashboard/_profile';
+        $data['dt_detail']=$this->siswa_model->getOneMember($user);
+        $this->load->view('index',$data);
+    }
+
+   // function updateprofile($user){
+        
+   // }
+
+   /*function kelas() {
         $data['content'] = 'management/_kelas/_kelas';
         $data['pagetitle'] = 'Manajemen Kelas';
         $data['getKelas'] = $this->kelas_model->getKelas();
@@ -40,7 +54,7 @@ class dashboard extends CI_Controller {
     }
 
     function DeleteKelas($kd) {
-        // if ($kd == '')
+        // if ($kd == '') 
 
         $this->kelas_model->delKelas($kd);
         redirect('dashboard/kelas');
@@ -48,7 +62,7 @@ class dashboard extends CI_Controller {
 
     function Member() {
         $data['content'] = 'management/_member/_member_list';
-        $data['pagetitle'] = 'Manajemen Kelas';
+        $data['pagetitle'] = 'Manajemen Member';
         $data['dt_member'] = $this->member_model->getMember()->result();
         $this->load->view('index', $data);
     }
@@ -66,8 +80,8 @@ class dashboard extends CI_Controller {
             $this->form_validation->set_rules('member_tanggaljoin', 'Tanggal Join', 'required');
             $this->form_validation->set_rules('member_agama', 'Agama', 'required');
             $this->form_validation->set_rules('member_alamat', 'Alamat', 'required');
-            if ($this->form_validation->run() == true):
-                $this->load->library('upload');
+           if ($this->form_validation->run() == true):
+               /* $this->load->library('upload');
                 $this->load->library('image_lib');
                 //config untuk upload
 
@@ -99,16 +113,31 @@ class dashboard extends CI_Controller {
                     $this->image_lib->resize();
                     $this->image_lib->clear();
 
-                    $this->member_model->saveMember($photo_path);
-                endif;
+                    //$this->member_model->saveMember($photo_path);
+                    $this->member_model>saveMember();
+               // endif;
                 $this->session->set_flashdata('message', 'Member Berhasil ditambahkan');
-                redirect('dashboard/member');
-            else:
+                
+                //print_r($this->member_model->getMember);
+                //redirect('dashboard/member');
+            /*else:
                 $data['error'] = validation_errors();
             endif;
         endif;
-        $data['content'] = "management/_member/_member_add";
+        $data['content'] = "management/_member/_member_register";
         $this->load->view('index', $data);
     }
+    
+    function kirimdata(){
+        $username=  $this->input->post('member_username');
+        $pass=$this->input->post('member_password');
+        $nama=$this->input->post('member_nm');
+        //$file=$this->input->post('member_photo');
+        $agama=$this->input->post('member_agama');
+        $jk=$this->input->post('member_jeniskelamin');
+        $gabung=array($username,$pass,$nama,$agama,$jk);
+        
+        print_r($gabung);
+    }*/
 
 }
