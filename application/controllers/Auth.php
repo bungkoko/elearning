@@ -44,12 +44,32 @@ class Auth extends CI_Controller {
                     $this->session->set_userdata('user_display_name', $member_data->row()->siswa_nm);
                     $this->session->set_userdata('user_photo',$member_data->row()->siswa_photo);
                     $this->session->set_userdata('user_role',$member_data->row()->user_role_type);
+                    $this->session->set_userdata('user_about',$member_data->row()->siswa_about);
                     $this->session->set_userdata('user_logged', true);
                     redirect('dashboard');
                 else:
                     $data["error"] = "Username atau password tidak sesuai dengan database";
                 endif;
-            elseif(($level=='guru') or ($level=='admin')):
+            elseif(($level=='guru')):
+                $this->db->join('user_role', 'user_role_user_role_kode=user_role_kode');
+                $this->db->where('guru_username', $username);
+                $this->db->where('guru_password', $password);
+                $this->db->where('user_role_type',$level);
+                //$this->db->where('user_role_type', $level);
+                $member_data = $this->db->get('guru');
+
+                if ($member_data->num_rows == 1):
+                    $this->session->set_userdata('user_id', $member_data->row()->guru_username);
+                    $this->session->set_userdata('user_display_name', $member_data->row()->guru_nm);
+                    $this->session->set_userdata('user_photo',$member_data->row()->guru_photo);
+                    $this->session->set_userdata('user_role',$member_data->row()->user_role_type);
+                    $this->session->set_userdata('user_about',$member_data->row()->guru_about);
+                    $this->session->set_userdata('user_logged', true);
+                    redirect('dashboard');
+                else:
+                    $data["error"] = "Username atau password tidak sesuai dengan database";
+                endif;
+            elseif($level=='admin'):
                 $this->db->join('user_role', 'user_role_user_role_kode=user_role_kode');
                 $this->db->where('guru_username', $username);
                 $this->db->where('guru_password', $password);
@@ -80,8 +100,10 @@ class Auth extends CI_Controller {
     function logout() {
         $this->session->unset_userdata('user_id');
         $this->session->unset_userdata('user_display_name');
+        $this->session->unset_userdata('user_photo');
+        $this->session->unset_userdata('user_about');
         $this->session->unset_userdata('user_logged');
-        redirect('home');
+        redirect('Auth');
     }
 
 }

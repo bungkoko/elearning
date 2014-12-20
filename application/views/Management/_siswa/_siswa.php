@@ -9,11 +9,25 @@
                                             <div class="panel-body pan">
                                                 <form method="post" action="<?php echo site_url('siswa/processRegister') ?>" enctype="multipart/form-data">
                                                 <div class="form-body pal">
-                                                    <div class="form-group">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-user"></i>
-                                                            <input id="inputName" type="text" placeholder="Username" class="form-control" name="siswa_username"></div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="input-icon right">
+                                                                    <i class="fa fa-user"></i>
+                                                                    <input id="inputName" type="text" placeholder="NIS" class="form-control" name="siswa_nis">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="input-icon right">
+                                                                    <i class="fa fa-user"></i>
+                                                                    <input id="inputName" type="text" placeholder="Username" class="form-control" name="siswa_username">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                    
                                                     <div class="form-group">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-envelope"></i>
@@ -129,36 +143,23 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>NIS</th>
                                         <th>Username</th>
-                                        <th>Age</th>
-                                        <th>Status</th>
+                                        <th>Nama Lengkap</th>
+                                        <th>Tanggal Join</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php $no=1;
+                                    foreach($dt_siswa as $siswa){?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Henry</td>
-                                        <td>23</td>
-                                        <td><span class="label label-sm label-success">Approved</span></td>
+                                        <td><?php echo $no++?></td>
+                                        <td><?php echo $siswa->siswa_nis;?></td>
+                                        <td><?php echo $siswa->siswa_username?></td>
+                                        <td><?php echo $siswa->siswa_nm?></td>
+                                        <td><?php echo $siswa->siswa_tanggaljoin?></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>John</td>
-                                        <td>45</td>
-                                        <td><span class="label label-sm label-info">Pending</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>30</td>
-                                        <td><span class="label label-sm label-warning">Suspended</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Lahm</td>
-                                        <td>15</td>
-                                        <td><span class="label label-sm label-danger">Blocked</span></td>
-                                    </tr>
+                                    <?php }?>
                                     </tbody>
                                 </table>
                             </div>

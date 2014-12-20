@@ -23,7 +23,7 @@
                 <div class="form-body pal">
                     <div class="col-md-12 text-center">
                         <h1 style="margin-top: -90px; font-size: 48px;">
-                            KAdmin</h1>
+                            E-Learning SMP MANYARAN</h1>
                         <br />
                     </div>
                     <div class="form-group">
@@ -44,7 +44,7 @@
                         <div class="col-md-9">
                             <div class="input-icon right">
                                 <i class="fa fa-user"></i>
-                                <input id="inputName" name='siswa_username' type="text" placeholder="" class="form-control" /></div>
+                                <input id="inputName" name="username" type="text" placeholder="" class="form-control" /></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,7 +53,17 @@
                         <div class="col-md-9">
                             <div class="input-icon right">
                                 <i class="fa fa-lock"></i>
-                                <input id="inputPassword" name='siswa_password' type="text" placeholder="" class="form-control" /></div>
+                                <input id="inputPassword" name="password" type="password" placeholder="" class="form-control" /></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputName" class="col-md-3 control-label">Hak Akses:</label>
+                        <div class="col-md-9">
+                            <select name="level">
+                                <option value="siswa">Siswa</option>
+                                <option value="guru">Guru</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group mbn">
