@@ -93,7 +93,7 @@ class Auth extends CI_Controller {
         endif;
         $data['nama_member'] = $this->session->userdata('user_display_name');
        // $data['warning'] = 'warning';
-
+        $data['pagetitle']="Login";
         $this->load->view('login', $data);
     }
 

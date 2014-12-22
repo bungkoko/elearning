@@ -17,15 +17,15 @@ class guru_model extends CI_Model{
         $this->db->set('guru_password',md5($this->input->post('guru_password')));
         $this->db->set('guru_nm',$this->input->post('guru_nm'));
         $this->db->set('guru_email',$this->input->post('guru_email'));
-        $this->db->set('guru_tgllahir',  $this->input->post('guru_tgllahir'));
+        $this->db->set('guru_tgllahir',  $this->input->post('tahun').'-'.$this->input->post('bulan').'-'.$this->input->post('tanggal'));
         $this->db->set('guru_tmplahir',$this->input->post('guru_tmplahir'));
         $this->db->set('mapel_mapel_kode',$this->input->post('guru_mapel'));
-        //$this->db->set('guru_jeniskelamin',$this->input->post('guru_jeniskelamin'));
+        $this->db->set('guru_jeniskelamin',$this->input->post('guru_jeniskelamin'));
         $this->db->set('guru_tanggaljoin', date('Y-m-d'));
         $this->db->set('guru_agama',$this->input->post('guru_agama'));
         $this->db->set('guru_alamat',$this->input->post('guru_alamat'));
         $this->db->set('guru_jabatan',$this->input->post('guru_jabatan'));
-        $this->db->set('user_role_user_role_kode',$this->input->post('guru_status_akses'));
+        $this->db->set('user_role_user_role_kode','2');
     }
     function saveguru($photo_path){
         $this->Input();
@@ -37,7 +37,7 @@ class guru_model extends CI_Model{
     
     function getguru(){
         $this->db->join('user_role','user_role_user_role_kode=user_role_kode');
-        $this->db->join('mapel','mapel_mapel_kode=mapel_kode');
+        //$this->db->join('mapel','mapel_mapel_kode=mapel_kode');
         return $this->db->get('guru');
     }
 

@@ -5,16 +5,16 @@
                                     <div class="col-lg-14">
                                         <div class="panel panel-orange">
                                             <div class="panel-heading">
-                                                Registrasi Siswa</div>
+                                                Registrasi guru</div>
                                             <div class="panel-body pan">
-                                                <form method="post" action="<?php echo site_url('siswa/processRegister') ?>" enctype="multipart/form-data">
+                                                <form method="post" action="<?php echo site_url('guru/processRegister') ?>" enctype="multipart/form-data">
                                                 <div class="form-body pal">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <div class="input-icon right">
                                                                     <i class="fa fa-user"></i>
-                                                                    <input id="inputName" type="text" placeholder="NIS" class="form-control" name="siswa_nis">
+                                                                    <input id="inputName" type="text" placeholder="NIP" class="form-control" name="guru_nip">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -22,7 +22,7 @@
                                                             <div class="form-group">
                                                                 <div class="input-icon right">
                                                                     <i class="fa fa-user"></i>
-                                                                    <input id="inputName" type="text" placeholder="Username" class="form-control" name="siswa_username">
+                                                                    <input id="inputName" type="text" placeholder="Username" class="form-control" name="guru_username">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -31,22 +31,22 @@
                                                     <div class="form-group">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-envelope"></i>
-                                                            <input id="inputEmail" type="text" placeholder="Email address" class="form-control" name="siswa_email"></div>
+                                                            <input id="inputEmail" type="text" placeholder="Email address" class="form-control" name="guru_email"></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-lock"></i>
-                                                            <input id="inputPassword" type="password" placeholder="Password" class="form-control" name="siswa_password"></div>
+                                                            <input id="inputPassword" type="password" placeholder="Password" class="form-control" name="guru_password"></div>
                                                     </div>
                                                     <hr>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input id="inputFirstName" name="siswa_nm" type="text" placeholder="Nama" class="form-control"></div>
+                                                                <input id="inputFirstName" name="guru_nm" type="text" placeholder="Nama" class="form-control"></div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                            <select class="form-control" name="siswa_jeniskelamin"> 
+                                                            <select class="form-control" name="guru_jeniskelamin"> 
                                                                 <option value="L">Laki-Laki</option>
                                                                 <option value="P">Perempuan</option>
                                                             </select>
@@ -56,11 +56,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Upload Photo</label>
-                                                        <input id="inputIncludeFile" name="siswa_photo" type="file" placeholder="Include some file" />
+                                                        <input id="inputIncludeFile" name="guru_photo" type="file" placeholder="Include some file" />
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input id="inputFirstName" name="siswa_tmplahir" type="text" placeholder="Tempat Lahir" class="form-control">
+                                                        <input id="inputFirstName" name="guru_tmplahir" type="text" placeholder="Tempat Lahir" class="form-control">
                                                     </div>
                                                     <div class="row">
                                                         
@@ -68,7 +68,7 @@
                                                             <div class="form-group">
                                                                 <label>Tahun Lahir</label>
                                                                  <select class="form-control" name="tahun">
-                                                                    <?php for($awal_thn=2000;$awal_thn<=date('Y');$awal_thn++){?>
+                                                                    <?php for($awal_thn=1960;$awal_thn<=1992;$awal_thn++){?>
                                                                         <option value='<?php echo $awal_thn;?>'><?php echo $awal_thn;?></option>
                                                                     <?php }?>
                                                                  </select>
@@ -95,10 +95,14 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <input id="inputName" name="guru_jabatan" type='text' placeholder='Jabatan'class="form-control"/>
+                                                    </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="siswa_agama">
+                                                            <label>Agama</label>
+                                                                <select class="form-control" name="guru_agama">
                                                                     <option value='islam'>Islam</option>
                                                                     <option value="protestan">Protestan</option>
                                                                     <option value="katolik">Katolik</option>
@@ -109,20 +113,17 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="siswa_kelas">
-                                                                <?php foreach ($getKelas as $gtkelas) {?>
-                                                                   <option value="<?php echo $gtkelas->kelas_kode;?>"><?php echo $gtkelas->kelas_nm;?></option>
+                                                            <label>Mata Pelajaran</label>
+                                                                <select class="form-control" name="guru_mapel">
+                                                                <?php foreach ($dt_mapel as $mapel) {?>
+                                                                   <option value="<?php echo $mapel->mapel_kode;?>"><?php echo $mapel->mapel_nm;?></option>
                                                                 <?php }?>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea rows="3" placeholder="Alamat Anda" name="siswa_alamat" class="form-control"></textarea>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <textarea rows="3" placeholder="About" name="siswa_about" class="form-control"></textarea>
+                                                        <textarea rows="3" placeholder="Alamat Anda" name="guru_alamat" class="form-control"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-actions text-right pal">
@@ -137,7 +138,7 @@
                             </div>
                             <div class="col-lg-8">
                     <div class="panel panel-orange">
-                        <div class="panel-heading">Daftar Siswa</div>
+                        <div class="panel-heading">Daftar guru</div>
                             <div class="panel-body">
                                 <table class="table table-hover">
                                     <thead>
@@ -152,14 +153,14 @@
                                     </thead>
                                     <tbody>
                                     <?php $no=1;
-                                    foreach($dt_siswa as $siswa){?>
+                                    foreach($dt_guru as $guru){?>
                                     <tr>
                                         <td><?php echo $no++?></td>
-                                        <td><?php echo $siswa->siswa_nis;?></td>
-                                        <td><?php echo $siswa->siswa_username?></td>
-                                        <td><?php echo $siswa->siswa_nm?></td>
-                                        <td><?php echo $siswa->siswa_tanggaljoin?></td>
-                                        <td><a href="<?php echo site_url('siswa/deletemember')?>/<?php echo $siswa->siswa_username?>">Hapus</a></td>
+                                        <td><?php echo $guru->guru_nis;?></td>
+                                        <td><?php echo $guru->guru_username?></td>
+                                        <td><?php echo $guru->guru_nm?></td>
+                                        <td><?php echo $guru->guru_tanggaljoin?></td>
+                                        <td><a href="<?php echo site_url('guru/deleteguru')?>/<?php echo $guru->guru_username?>">Hapus</a></td>
                                     </tr>
                                     <?php }?>
                                     </tbody>

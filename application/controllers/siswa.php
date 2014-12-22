@@ -7,6 +7,9 @@
 			$this->load->model('siswa_model');
 			$this->load->model('kelas_model');
 			$this->load->model('role_model');
+			if($this->session->userdata('user_logged')==false){
+				redirect('auth');
+			}
 			
 		}
 

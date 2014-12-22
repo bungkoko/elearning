@@ -23,7 +23,7 @@
                 <div class="form-body pal">
                     <div class="col-md-12 text-center">
                         <h1 style="margin-top: -90px; font-size: 48px;">
-                            E-Learning SMP MANYARAN</h1>
+                            E-Learning </h1>
                         <br />
                     </div>
                     <div class="form-group">
