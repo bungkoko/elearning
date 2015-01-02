@@ -13,9 +13,9 @@ class dashboard extends CI_Controller {
         $this->load->model('kelas_model');
         $this->load->model('siswa_model');
         //$this->load->model('guru_model');g
-       if($this->session->userdata('user_logged')==false){
+       /*if($this->session->userdata('user_logged')==false){
             redirect('auth');
-        }
+        }*/
     }
 
     function index() {

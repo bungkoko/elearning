@@ -84,5 +84,23 @@ class guru extends CI_Controller{
 			}
 		}
 
+		function status_akses($id='', $status='') {
+       
+        if ($status == '1')
+            $status = '2';
+        else
+            $status = '1';
+
+        // $this->db->join('tborder','tborder.kdorder=tborder_detail.tborder_kdorder');
+        // $this->db->join('tbproduk','tborder_detail.TbProduk_KdProduk=tbProduk.kdproduk');
+        //$this->db->join('tbmember','tbmember.kdmember=tborder.tbmember_kdmember');
+        $this->db->where('guru_username', $id);
+        $this->db->set('user_role_user_role_kode', $status);
+        $this->db->update('guru');
+
+        $this->session->set_flashdata('message', 'status berita telah berhasil di ubah');
+        redirect('guru');
+    }
+
 }
 ?>

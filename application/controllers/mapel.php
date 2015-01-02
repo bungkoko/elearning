@@ -3,11 +3,13 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('mapel_model');
+			//$this->load->model('kelas_model');
 			
 		}
 
 		function index(){
 			$data['content']="management/_mapel/_mapel";
+			$data['pagetitle']='Management Mata Pelajaran';
 			$data['getMapel']=$this->mapel_model->getAllMapel();
 			$this->load->view('index',$data);
 		}

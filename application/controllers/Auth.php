@@ -10,6 +10,10 @@ class Auth extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('mapel_model');
+        $this->load->model('role_model');
+        $this->load->model('siswa_model');
+        $this->load->model('kelas_model');
     }
 
     function index() {
@@ -41,10 +45,12 @@ class Auth extends CI_Controller {
 
                 if ($member_data->num_rows == 1):
                     $this->session->set_userdata('user_id', $member_data->row()->siswa_username);
+                    $this->session->set_userdata('user_no_induk',$member_data->row()->siswa_nis);
                     $this->session->set_userdata('user_display_name', $member_data->row()->siswa_nm);
                     $this->session->set_userdata('user_photo',$member_data->row()->siswa_photo);
                     $this->session->set_userdata('user_role',$member_data->row()->user_role_type);
                     $this->session->set_userdata('user_about',$member_data->row()->siswa_about);
+                    $this->session->set_userdata('user_join',$member_data->row()->siswa_tanggaljoin);
                     $this->session->set_userdata('user_logged', true);
                     redirect('dashboard');
                 else:
@@ -60,10 +66,12 @@ class Auth extends CI_Controller {
 
                 if ($member_data->num_rows == 1):
                     $this->session->set_userdata('user_id', $member_data->row()->guru_username);
+                    $this->session->set_userdata('user_no_induk',$member_data->row()->guru_nip);
                     $this->session->set_userdata('user_display_name', $member_data->row()->guru_nm);
                     $this->session->set_userdata('user_photo',$member_data->row()->guru_photo);
                     $this->session->set_userdata('user_role',$member_data->row()->user_role_type);
                     $this->session->set_userdata('user_about',$member_data->row()->guru_about);
+                    $this->session->set_userdata('user_join',$member_data->row()->guru_tanggaljoin);
                     $this->session->set_userdata('user_logged', true);
                     redirect('dashboard');
                 else:
@@ -78,12 +86,16 @@ class Auth extends CI_Controller {
                 $member_data = $this->db->get('guru');
 
                 if ($member_data->num_rows == 1):
-                    $this->session->set_userdata('user_id', $member_data->row()->guru_username);
+                       $this->session->set_userdata('user_id', $member_data->row()->guru_username);
+                    $this->session->set_userdata('user_no_induk',$member_data->row()->guru_nip);
                     $this->session->set_userdata('user_display_name', $member_data->row()->guru_nm);
                     $this->session->set_userdata('user_photo',$member_data->row()->guru_photo);
                     $this->session->set_userdata('user_role',$member_data->row()->user_role_type);
+                    $this->session->set_userdata('user_about',$member_data->row()->guru_about);
+                    $this->session->set_userdata('user_join',$member_data->row()->guru_tanggaljoin);
                     $this->session->set_userdata('user_logged', true);
                     redirect('dashboard');
+               
                 else:
                     $data["error"] = "Username atau password tidak sesuai dengan database";
                 endif;
@@ -94,7 +106,8 @@ class Auth extends CI_Controller {
         $data['nama_member'] = $this->session->userdata('user_display_name');
        // $data['warning'] = 'warning';
         $data['pagetitle']="Login";
-        $this->load->view('login', $data);
+        $data['content']='login';
+        $this->load->view('welcome_page', $data);
     }
 
     function logout() {
@@ -102,8 +115,24 @@ class Auth extends CI_Controller {
         $this->session->unset_userdata('user_display_name');
         $this->session->unset_userdata('user_photo');
         $this->session->unset_userdata('user_about');
+        $this->session->unset_userdata('user_no_induk');
+        $this->session->unset_userdata('user_role');
+        $this->session->unset_userdata('user_join');
         $this->session->unset_userdata('user_logged');
         redirect('Auth');
     }
 
+    function RegisterGuru(){
+        $data['dt_mapel']=$this->mapel_model->getAllMapel()->result();
+        $data['dt_user_type']=$this->role_model->getRole()->result();
+        $data['content']='Register/RegisterGuru';
+        $this->load->view('welcome_page',$data);
+    }
+
+    function RegisterSiswa(){
+        $data['content']='Register/RegisterSiswa';
+        $data['dt_siswa'] = $this->siswa_model->getsiswa()->result();
+        $data['getKelas'] = $this->kelas_model->getKelas()->result();
+        $this->load->view('welcome_page',$data);
+    }
 }

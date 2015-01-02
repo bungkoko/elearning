@@ -1,57 +1,30 @@
-<div class="row-fluid">
-    <div class="span12">
-
-        <h3 class="page-title">
-            Manajemen Mata Pelajaran
-        </h3>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span6">
-        <!-- BEGIN GRID SAMPLE PORTLET-->
-        <div class="widget">
-            <div class="widget-title">
-                <h4>Input Mata Pelajaran</h4>
-
-            </div>
-            <div class="widget-body">
-                <form method="post" action="<?php echo site_url('mapel/create') ?>">
-                    <table>
-                        <div class="control-group">
-                            <tr>
-                                <td><label class="control-label">Mata Pelajaran</label></td>
-                                <td> : </td>
-                                <td>
-                                    <div class="controls">
-                                        <input type="text"  class="input-medium" name="mapel_nm">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><input type="submit" name="submit" class="btn blue"><i class="icon-ok"></i> Save</button></td>
-                            </tr>
-
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-panel">
+            <h4 class="mb"><i class="fa fa-angle-right"></i>Master Mata Pelajaran</h4>
+            <hr>
+            <form class="form-horizontal style-form" method="post" action="<?php echo site_url('mapel/create') ?>">
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Mata Pelajaran</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Mata Pelajaran" class="form-control" name="kelas_nm">
                         </div>
-                    </table>
-                </form>
-            </div>
-        </div>   
-
-        <!-- END GRID PORTLET-->
+                </div>
+                <div class="form-actions text-right pal">
+                    <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>        
+        </div>
     </div>
-    <div class="span6">
-        <!-- BEGIN GRID SAMPLE PORTLET-->
-        <div class="widget">
-            <div class="widget-title">
-                <h4>Daftar Kelas</h4>
-
-            </div>
-            <div class="widget-body">
-                <table class="table table-hover">
-                    <thead>
+    <div class="col-md-4">
+        <div class="content-panel"style="padding-left:10px;padding-right:10px">
+            <h4><i class="fa fa-angle-right"></i> Daftar Mata Pelajaran</h4>
+            <hr>
+            <table class="table">
+                <thead>
                         <tr>
                             <th width="20%">#</th>
-                            <th width="40%">Kelas</th>
+                            <th width="40%">Mata Pelajaran</th>
                             <th width="40%">Aksi</th>
                         </tr>
                     </thead>
@@ -65,7 +38,7 @@
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $gtMapel->mapel_nm; ?></td>
 
-                                    <td><span><a href="<?php echo site_url('dashboard/deleteKelas') ?>/<?php echo $gtKelas->kelas_kode ?>">Delete</a></span> || <span>Edit</span></td>
+                                    <td><span><a href="<?php //echo site_url('dashboard/deleteKelas') ?>/<?php //echo $gtKelas->kelas_kode ?>">Delete</a></span> || <span>Edit</span></td>
                                 </tr>
                                 <?php
                             endforeach;
@@ -79,9 +52,7 @@
                     ?>
 
                     </tbody>
-                </table>
-            </div>
+            </table>
         </div>
-    </div><!-- END GRID PORTLET-->
-</div>
+    </div>
 </div>

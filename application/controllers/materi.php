@@ -4,6 +4,7 @@
 			parent::__construct();
 			$this->load->model('mapel_model');
 			$this->load->model('kelas_model');
+			$this->load->model('materi_model');
 
 		}
 
@@ -11,21 +12,23 @@
 			$data['pagetitle']='Management Materi';
 			$data['dt_mapel']=$this->mapel_model->getAllMapel()->result();
 			$data['dt_kelas']=$this->kelas_model->getKelas()->result();
-			$data['content']='materi/_materi';
+			$data['dt_materi']=$this->materi_model->getMateri()->result();
+			//$data['dt_materiForSiswa']=$this->materi_model->getMateriGuru()->row();
+			$data['content']='management/_materi/_materi';
 			$this->load->view('index',$data);
 		}
 
 		function process(){
 			if($this->input->post("submit")){
 				$this->form_validation->set_rules('materi_judul','Judul Materi','required');
-				$this->form_validation->set_rules('materi_upload','Upload Materi','required');
+				//$this->form_validation->set_rules('materi_upload','Upload Materi','required');
 				$this->form_validation->set_rules('kelas','Kelas', 'required');
 				$this->form_validation->set_rules('mapel','Mata Pelajaran','required');
 				$this->form_validation->set_rules('materi_jenis','Jenis Materi','required');
 
 				if($this->form_validation->run()==true){
 					$this->load->library('upload');
-					$this->load->library('image_lib');
+					//$this->load->library('image_lib');
 						
 
 					$config['upload_path'] = '.' . $this->config->item("upload_path_materi");
@@ -33,7 +36,7 @@
 		           	$config['max_size'] = 5000;
 		           	$config['max_width'] = 0;
 		           	$config['max_height'] = 0;
-		           	$config['encrypt_name'] = true;
+		           	$config['encrypt_name'] = false;
 
 					
 
@@ -58,6 +61,31 @@
 				}
 			}
 		}
+
+		function Delete($id){
+			$this->materi_model->delMateri($id);
+			redirect('materi');
+
+		}
+
+		function getOneMateri($kode){
+			$data['content']='management/_materi/_materi_viewer';
+			$data['pagetitle']="Materi Viewer";
+			$data['dt_detail']=$this->materi_model->getOneMateri($kode);
+			$this->load->view('index',$data);
+		}
+		/*function deletefile(){
+			$id="";
+			$this->materi_model->deleteFile($id);
+			redirect('materi');
+		}*/
+
+		function materi_viewer(){
+			$data['pagetitle']="Materi Viewer";
+			$data['content']='management/_materi/_materi_viewer';
+			$this->load->view('index',$data);
+		}
+
 	}
 
 ?>

@@ -1,39 +1,38 @@
 
-                            <div class="col-lg-4">
-                                <div class="panel">
-                                    <div class="panel-body">
-                                        <div class="profile">
-                                            <div style="margin-bottom: 15px" class="row">
-                                                <div class="col-xs-12 col-sm-8">
-                                                    <h2>
-                                                        <?php echo $this->session->userdata('user_display_name')?></h2>
-                                                    <p>
-                                                        <strong>About:</strong> <?php echo $this->session->userdata('user_about')?></p>
-                                                   
-                                                    <p>
-                                                        <strong class="mrs">Skills:</strong><span class="label label-green mrs">html5</span><span
-                                                            class="label label-green mrs">css3</span><span class="label label-green mrs">jquery</span></p>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-4 text-center">
-                                                    <figure><img src="<?php echo base_url().'/'.$this->session->userdata('user_photo')?>" alt="" style="display: inline-block" class="img-responsive img-circle"/>
-                                                    <figcaption class="ratings"><p><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star"></span></a><a href="#"><span class="fa fa-star-o"></span></a></p></figcaption>
-                                                </figure>
-                                                </div>
-                                            </div>
-                                            
+ <div class="col-lg-9"><div class="col-lg-12 col-md-12 col-sm-12 mb">
+
+   <div class="twitter-panel pn">
+                                <p style="padding-top:30px">Selamat Datang di Dashboard Pribadi Web Elearning SMP Manyaran</p>
+                                <p><img src="<?php echo base_url().$this->session->userdata('user_photo');?>" class="img-circle" width="50"></p>
+                                <p><b><?php echo $this->session->userdata('user_display_name');?></b></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p>Nomor Induk</p>
+                                            <p><?php echo $this->session->userdata('user_no_induk')?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Join Sejak</p>
+                                            <p><?php echo $this->session->userdata('user_join')?></p>
                                         </div>
                                     </div>
+                            </div>
+
+</div>
+</div><!-- /col-md-12 -->
+ <div class="col-lg-3 ds">
+                    <!-- CALENDAR-->
+                        <div id="calendar" class="mb">
+                            <div class="panel green-panel no-margin">
+                                <div class="panel-body">
+                                    <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+                                        <div class="arrow"></div>
+                                        <h3 class="popover-title" style="disadding: none;"></h3>
+                                        <div id="date-popover-content" class="popover-content"></div>
+                                    </div>
+                                    <div id="my-calendar"></div>
                                 </div>
                             </div>
-                              <div class="col-lg-8">
-                                <div class="portlet box">
-                                    <div class="portlet-header">
-                                        <div class="caption">
-                                            Welcome to Dashboard</div>
-                                    </div>
-                                    <div style="overflow: hidden;" class="portlet-body">
-                                        Selamat Datang <strong><?php echo $this->session->userdata('user_display_name')?></strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div><!-- / calendar -->
+                      
+                  </div>
+               

@@ -159,7 +159,7 @@
                                         <td><?php echo $siswa->siswa_username?></td>
                                         <td><?php echo $siswa->siswa_nm?></td>
                                         <td><?php echo $siswa->siswa_tanggaljoin?></td>
-                                        <td><a href="<?php echo site_url('siswa/deletemember')?>/<?php echo $siswa->siswa_username?>">Hapus</a></td>
+                                        <td><a href="<?php echo site_url('siswa/deletesiswa')?>/<?php echo $siswa->siswa_username?>">Hapus</a></td>
                                     </tr>
                                     <?php }?>
                                     </tbody>

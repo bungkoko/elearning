@@ -1,11 +1,10 @@
 
-                        <div style="padding-left:15px">                            
-                            <div class="col-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-14">
-                                        <div class="panel panel-orange">
-                                            <div class="panel-heading">
-                                                Registrasi guru</div>
+                            <div class="row">                
+                            <div class="col-md-6">
+                                
+                                        <div class="form-panel">
+                                            <h4 class="mb"><i class="fa fa-angle-right"></i> Registrasi Guru</h4>
+                                            <hr>
                                             <div class="panel-body pan">
                                                 <form method="post" action="<?php echo site_url('guru/processRegister') ?>" enctype="multipart/form-data">
                                                 <div class="form-body pal">
@@ -13,15 +12,14 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <div class="input-icon right">
-                                                                    <i class="fa fa-user"></i>
-                                                                    <input id="inputName" type="text" placeholder="NIP" class="form-control" name="guru_nip">
+                                                                  <input id="inputName" type="text" placeholder="NIP" class="form-control" name="guru_nip">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <div class="input-icon right">
-                                                                    <i class="fa fa-user"></i>
+                                                                   
                                                                     <input id="inputName" type="text" placeholder="Username" class="form-control" name="guru_username">
                                                                 </div>
                                                             </div>
@@ -30,12 +28,12 @@
                                                     
                                                     <div class="form-group">
                                                         <div class="input-icon right">
-                                                            <i class="fa fa-envelope"></i>
+                                                            
                                                             <input id="inputEmail" type="text" placeholder="Email address" class="form-control" name="guru_email"></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="input-icon right">
-                                                            <i class="fa fa-lock"></i>
+                                                            
                                                             <input id="inputPassword" type="password" placeholder="Password" class="form-control" name="guru_password"></div>
                                                     </div>
                                                     <hr>
@@ -132,22 +130,26 @@
                                                 </div>
                                                 </form>
                                             </div>
-                                        </div>
-                                    </div>
+                                      
                                 </div>
                             </div>
-                            <div class="col-lg-8">
-                    <div class="panel panel-orange">
-                        <div class="panel-heading">Daftar guru</div>
-                            <div class="panel-body">
-                                <table class="table table-hover">
-                                    <thead>
+               
+
+                        <div class="col-md-6">
+                          <div class="content-panel"style="padding-left:10px;padding-right:10px">
+                              <h4><i class="fa fa-angle-right"></i> Daftar Guru</h4>
+                              <hr>
+                              <table class="table">
+                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>NIS</th>
                                         <th>Username</th>
                                         <th>Nama Lengkap</th>
                                         <th>Tanggal Join</th>
+                                        <?php if ($this->session->userdata('user_role')=='admin'){?>
+                                        <th>Status</th>
+                                        <?php }?>
                                         <th>Aksi</th>
                                     </tr>
                                     </thead>
@@ -156,16 +158,27 @@
                                     foreach($dt_guru as $guru){?>
                                     <tr>
                                         <td><?php echo $no++?></td>
-                                        <td><?php echo $guru->guru_nis;?></td>
+                                        <td><?php echo $guru->guru_nip;?></td>
                                         <td><?php echo $guru->guru_username?></td>
                                         <td><?php echo $guru->guru_nm?></td>
                                         <td><?php echo $guru->guru_tanggaljoin?></td>
+                                        <?php if ($this->session->userdata('user_role')=='admin'){?>
+                                         <td>
+                                            <a href="<?php echo site_url('guru/status_akses/'.$guru->guru_username.'/'.$guru->user_role_user_role_kode.''); ?>">
+                                            <?php if($guru->user_role_user_role_kode=='1'){?>
+                                                <span class="label label-success"><?php echo $guru->user_role_type;?></span>
+                                            <?php } else {?>
+                                                <span class="label label-warning"><?php echo $guru->user_role_type;?></span>                                           
+                                            <?php }?>
+                                            </a>
+                                        </td>
+                                        <?php }?>
                                         <td><a href="<?php echo site_url('guru/deleteguru')?>/<?php echo $guru->guru_username?>">Hapus</a></td>
                                     </tr>
                                     <?php }?>
                                     </tbody>
-                                </table>
-                            </div>
-                        </div>
-                            </div>
-                        </div>
+                              </table>
+                          </div>
+                      </div>
+                      </div>
+               

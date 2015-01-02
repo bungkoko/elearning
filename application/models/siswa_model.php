@@ -60,6 +60,13 @@ class siswa_model extends CI_Model{
         return $this->db->get('siswa')->row();
     }
 
+    function getSiswaMapelperKelas($username,$kelas){
+        $this->db->join('kelas','siswa.kelas_kelas_kode=kelas.kelas_kode');
+        $this->db->where('siswa.kelas_kelas_kode',$kelas);
+        $this->db->where('siswa.siswa_username',$username);
+        return $this->db->get('siswa'); 
+    }
+
 
 
     

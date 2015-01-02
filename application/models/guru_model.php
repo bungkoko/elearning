@@ -61,6 +61,13 @@ class guru_model extends CI_Model{
         return $this->db->get('guru')->row();
     }
 
+    function updateStatus($username,$status){
+       // $ambil=$this->getOneguru($username);
+        $this->db->set('user_role_user_role_kode',$status);
+        $this->db->where('guru_username',$id);
+        return $this->db->update('guru');
+    }
+
 
 
     
