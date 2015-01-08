@@ -37,6 +37,7 @@ class Auth extends CI_Controller {
            // $level = $this->input->post('level');
             if($level=='siswa'):
                 $this->db->join('user_role', 'user_role_user_role_kode=user_role_kode');
+                //$this->db->join('kelas','kelas.kelas_kode=siswa.kelas_kelas_kode');
                 $this->db->where('siswa_username', $username);
                 $this->db->where('siswa_password', $password);
                 $this->db->where('user_role_type',$level);
@@ -51,6 +52,7 @@ class Auth extends CI_Controller {
                     $this->session->set_userdata('user_role',$member_data->row()->user_role_type);
                     $this->session->set_userdata('user_about',$member_data->row()->siswa_about);
                     $this->session->set_userdata('user_join',$member_data->row()->siswa_tanggaljoin);
+                    $this->session->set_userdata('user_kelas',$member_data->row()->kelas_kelas_kode);
                     $this->session->set_userdata('user_logged', true);
                     redirect('dashboard');
                 else:
@@ -118,6 +120,7 @@ class Auth extends CI_Controller {
         $this->session->unset_userdata('user_no_induk');
         $this->session->unset_userdata('user_role');
         $this->session->unset_userdata('user_join');
+        $this->session->unset_userdata('user_kelas');
         $this->session->unset_userdata('user_logged');
         redirect('Auth');
     }

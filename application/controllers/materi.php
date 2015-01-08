@@ -86,6 +86,11 @@
 			$this->load->view('index',$data);
 		}
 
+		function download($name,$path){
+			$this->load->helper('download');
+			force_download($name,$path);
+		}
+
 	}
 
 ?>

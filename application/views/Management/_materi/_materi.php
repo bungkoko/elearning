@@ -77,7 +77,9 @@
                                     </thead>
                                     <tbody>
                                     <?php $no=1;
-                                    foreach($dt_materi as $materi){?>
+                                    foreach($dt_materi as $materi){
+                                        $path=$materi->materi_file;
+                                        ?>
                                     <tr>
                                         <td><?php echo $no++?></td>
                                         <td><?php echo $materi->mapel_nm;?></td>
@@ -85,7 +87,7 @@
                                         <td><?php echo $materi->materi_jenis;?></td>
                                         <td><?php echo $materi->materi_tanggalupload;?></td>
                                         <td><?php echo $materi->materi_nm;?></td>
-                                        <td><a href="<?php echo site_url('materi/delete').'/'.$materi->materi_kode;?>">Hapus</a>|<a href="#">Download</a>|<a href="<?php echo site_url('materi/getOneMateri').'/'.$materi->materi_kode;?>">View</a></td>
+                                        <td><a href="<?php echo site_url('materi/delete').'/'.$materi->materi_kode;?>">Hapus</a>|<a href="<?php echo site_url('materi/download').'/'.$materi->materi_nm.'/'.$path;?>">Download</a>|<a href="<?php echo site_url('materi/getOneMateri').'/'.$materi->materi_kode;?>">View</a></td>
                                     </tr>
                                     <?php }?>
                                     </tbody>

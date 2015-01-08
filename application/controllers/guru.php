@@ -75,7 +75,11 @@ class guru extends CI_Controller{
 						$this->image_lib->clear();
 
 						$this->guru_model->saveguru($photo_path);
-						redirect('guru');
+						if($this->session->userdata('user_logged')==true){
+							redirect('guru');
+						}else{
+							redirect('auth/index');
+						}
 					}
 				}else{
 					echo "tidak valid";

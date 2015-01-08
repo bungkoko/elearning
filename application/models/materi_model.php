@@ -24,6 +24,16 @@
 			return $this->db->get('materi');
 		}
 
+		function getMapelPerKelas($kelas){
+			$this->db->select('mapel_kode,mapel_nm');
+			//$this->db->from('kelas,mapel,materi');
+			$this->db->join('kelas','kelas.kelas_kode=materi.kelas_kelas_kode');
+			$this->db->join('mapel','mapel.mapel_kode=materi.mapel_mapel_kode');
+			$this->db->where('materi_jenis','tugas');
+			$this->db->where('materi.kelas_kelas_kode',$kelas);
+			return $this->db->get('materi');
+		}
+
 		function delMateri($id){
 			$this->db->where('materi_kode',$id);
 			//$this->db->where('materi_file',$path);

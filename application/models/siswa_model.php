@@ -54,7 +54,15 @@ class siswa_model extends CI_Model{
         unlink('.'.$row->member_photo);
 
     }
-    function getOnesiswa($username){
+
+    function getsiswaMapel($kelas,$mapel){
+        $this->db->join('kelas','kelas.kelas_kode=siswa.kelas_kelas_kode');
+        $this->db->join('mapel','mapel.mapel_kode=guru.mapel_mapel_kode');
+        $this->db->where('siswa.kelas_kelas_kode',$kelas);
+        $this->db->where('guru.mapel_mapel_kode',$mapel);
+        return $this->db->get('siswa');
+    }
+    function getOneMember($username){
         $this->db->join('user_role','user_role_kode=user_role_user_role_kode');
         $this->db->where('siswa_username',$username);
         return $this->db->get('siswa')->row();

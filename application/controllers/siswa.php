@@ -82,7 +82,11 @@
 						$this->image_lib->clear();
 
 						$this->siswa_model->savesiswa($photo_path);
-						redirect('siswa');
+						if($this->session->userdata('user_logged')==true){
+							redirect('siswa');
+						}else{
+							redirect('auth/index');
+						}
 					}
 				}else{
 					echo "tidak valid";
@@ -107,6 +111,8 @@
         	print_r(date('Y-m-d'));
     	}
 
-	}
+    	
+	
+}
 
 ?>

@@ -1,6 +1,6 @@
 <div class="container">
 	  	
-		      <form class="form-login" style='margin-top:10px;' action="<?php echo site_url('guru/processRegister')?>" method='post'>
+		      <form class="form-login" style='margin-top:10px;' action="<?php echo site_url('guru/processRegister')?>" method='post' enctype="multipart/form-data">
 		        <h2 class="form-login-heading"><span style="float:left;"><a href="<?php echo site_url('auth/index')?>" style="text-decoration:none"><</a></span>Register Guru</h2>
 		        <div class="login-wrap">
                                                     <div class="row">

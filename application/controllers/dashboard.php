@@ -12,10 +12,10 @@ class dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('kelas_model');
         $this->load->model('siswa_model');
-        //$this->load->model('guru_model');g
-       /*if($this->session->userdata('user_logged')==false){
+        $this->load->model('guru_model');
+       if($this->session->userdata('user_logged')==false){
             redirect('auth');
-        }*/
+        }
     }
 
     function index() {
@@ -27,7 +27,11 @@ class dashboard extends CI_Controller {
 
     function profile($user){
         $data['content']='Dashboard/_profile';
-        $data['dt_detail']=$this->siswa_model->getOneMember($user);
+        if($this->session->userdata('user_role')=='guru'){
+           $data['dt_detail']=$this->guru_model->getOneMember($user);
+        }elseif($this->session->userdata('user_role')=='siswa') {
+            $data['dt_detail']=$this->siswa_model->getOneMember($user);
+        }
         $this->load->view('index',$data);
     }
 

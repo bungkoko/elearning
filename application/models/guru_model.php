@@ -55,7 +55,7 @@ class guru_model extends CI_Model{
         unlink('.'.$row->guru_photo);
 
     }
-    function getOneguru($username){
+    function getOneMember($username){
         $this->db->join('user_role','user_role_kode=user_role_user_role_kode');
         $this->db->where('guru_username',$username);
         return $this->db->get('guru')->row();

@@ -361,6 +361,7 @@ $config['absolutePathFolder'] = $_SERVER['DOCUMENT_ROOT'].'/elearning/';
 
 $config['upload_path_photo'] = '/upload/profile/';
 $config['upload_path_materi'] = '/upload/materi/';
+$config['upload_path_tugas'] = '/upload/tugas/';
 
 $config['allowed_types'] = 'jpg|png|jpeg|gif';
 $config['allowed_types_doc'] = 'pdf|doc|docx';
