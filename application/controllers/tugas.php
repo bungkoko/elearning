@@ -12,7 +12,7 @@ class tugas extends CI_Controller{
 	}
 
 	function index(){
-		$data['content']='management/_tugas/_tugas';
+		$data['content']='management/_tugas/_listTugas';
 		$data['dt_tugas']=$this->materi_model->getMapelPerKelas($this->session->userdata('user_kelas'));
 		$this->load->view('index',$data);
 	}

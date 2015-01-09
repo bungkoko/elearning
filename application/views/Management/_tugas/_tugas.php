@@ -2,7 +2,7 @@
 
 
 <div class="col-md-5">
-                                
+ 
                                         <div class="form-panel">
                                             <h4 class="mb"><i class="fa fa-angle-right"></i> Master Materi</h4>
                                             <hr>
@@ -30,16 +30,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Materi Kelas</label>
-                                                                <select class="form-control" name="kelas">
-                                                                <?php //foreach(//$dt_kelas as $kelas){?> 
-                                                                    <option value="<?php echo ?>"><?php //echo /$kelas->kelas_nm;?></option>
-                                                                <?php //}?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Upload Materi (*.pdf)</label>
