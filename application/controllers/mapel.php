@@ -3,6 +3,9 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('mapel_model');
+			 if($this->session->userdata('user_logged')==false){
+            redirect('auth');
+        }
 			//$this->load->model('kelas_model');
 			
 		}

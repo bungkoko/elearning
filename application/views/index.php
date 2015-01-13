@@ -64,7 +64,7 @@
               
                   <p class="centered"><a href="profile.html"><img src="<?php echo base_url(). $this->session->userdata('user_photo')?>" class="img-circle" width="60"></a></p>
                   <h5 class="centered"><?php echo $this->session->userdata('user_display_name')?></h5>
-                    
+                   <?php if($this->session->userdata('user_role')=='admin'){?> 
                   <li class="mt">
                       <a class="active" href="#">
                           <i class="fa fa-dashboard"></i>
@@ -116,6 +116,53 @@
                           <span>Master Setting Profile</span>
                       </a>
                   </li>
+                  <?php }
+                    elseif($this->session->userdata('user_role')=='siswa'){
+                      ?>
+                  <li class="mt">
+                      <a class="active" href="#">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<?php echo site_url('materi/index')?>">
+                          <i class="fa fa-book"></i>
+                          <span>Master Materi</span>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="<?php echo site_url('tugas/index')?>">
+                          <i class="fa fa-book"></i>
+                          <span>Master Tugas</span>
+                      </a>
+                  </li>
+
+                  <?php
+                    }elseif($this->session->userdata('user_role')=='guru'){
+                    ?>
+                     <li class="mt">
+                      <a class="active" href="<?php echo site_url('dashboard/index') ?>">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a class="actuive"href="<?php echo site_url('materi/index')?>">
+                          <i  class="fa fa-book"></i>
+                          <span>Master Materi</span>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="<?php echo site_url('tugas/index')?>">
+                          <i class="fa fa-book"></i>
+                          <span>Master Tugas</span>
+                      </a>
+                  </li>
+                    <?php }
+                  ?>
               </ul>
               <!-- sidebar menu end-->
           </div>

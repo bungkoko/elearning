@@ -8,7 +8,7 @@
                 <div class="panel-body pan">
 	                <center>
 	                	<div class="pdf-container">
-	               			<iframe src="<?php echo base_url().$dt_detail->materi_file.'.pdf';?>" type="application/pdf" width="1200" height="700"></iframe>
+	               			<iframe src="<?php echo base_url().$dt_detail->materi_file;?>" type="application/pdf" width="1200" height="700"></iframe>
 	               		</div>
 	                </center>
                 </div>

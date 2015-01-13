@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Jan 2015 pada 11.52
+-- Generation Time: 13 Jan 2015 pada 08.07
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -100,7 +100,7 @@ INSERT INTO `mapel` (`mapel_kode`, `mapel_nm`) VALUES
 CREATE TABLE IF NOT EXISTS `materi` (
 `materi_kode` int(11) NOT NULL,
   `materi_nm` varchar(45) DEFAULT NULL,
-  `materi_file` varchar(45) DEFAULT NULL,
+  `materi_file` text,
   `materi_jenis` enum('tugas','materi') DEFAULT NULL,
   `materi_tanggalupload` date DEFAULT NULL,
   `mapel_mapel_kode` int(11) NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `materi` (
 --
 
 INSERT INTO `materi` (`materi_kode`, `materi_nm`, `materi_file`, `materi_jenis`, `materi_tanggalupload`, `mapel_mapel_kode`, `kelas_kelas_kode`, `guru_guru_nip`) VALUES
-(5, 'Petunjuk Proposal', '/upload/materi/Petunjuk-Pembuatan-Proposal-TA', 'materi', '2014-12-23', 1, 1, '19024756879782');
+(5, 'Petunjuk Proposal', '/upload/materi/Petunjuk-Pembuatan-Proposal-TA.pdf', 'materi', '2014-12-23', 1, 1, '19024756879782');
 
 -- --------------------------------------------------------
 
@@ -156,8 +156,17 @@ CREATE TABLE IF NOT EXISTS `siswa_has_materi` (
   `siswa_siswa_nis` varchar(6) NOT NULL,
   `materi_materi_kode` int(11) NOT NULL,
   `materi_kelas_kelas_kode` int(11) NOT NULL,
-  `tugas_upload` text
+  `materi_mapel_mapel_kode` int(11) NOT NULL,
+  `tugas_upload` text,
+  `tugas_tanggalupload` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `siswa_has_materi`
+--
+
+INSERT INTO `siswa_has_materi` (`siswa_siswa_nis`, `materi_materi_kode`, `materi_kelas_kelas_kode`, `materi_mapel_mapel_kode`, `tugas_upload`, `tugas_tanggalupload`) VALUES
+('060221', 5, 1, 1, '/upload/tugas/Laporan_Desain_Web_Elearning-13.52_.0408-Joko_Purwanto_.pdf', '2015-01-11');
 
 -- --------------------------------------------------------
 

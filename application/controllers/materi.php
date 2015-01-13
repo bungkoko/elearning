@@ -5,6 +5,9 @@
 			$this->load->model('mapel_model');
 			$this->load->model('kelas_model');
 			$this->load->model('materi_model');
+			 if($this->session->userdata('user_logged')==false){
+            redirect('auth');
+        }
 
 		}
 
@@ -86,9 +89,18 @@
 			$this->load->view('index',$data);
 		}
 
-		function download($name,$path){
+		function download(){
 			$this->load->helper('download');
-			force_download($name,$path);
+			$get_materi=$this->materi_model->getMateri()->result();
+			foreach($get_materi as $materi){
+				$download=$materi->materi_file;
+				$file_name = $materi->materi_nm;
+			}
+			
+			//foreach($this->materi_)
+			//$data=file_get_contents(filename)
+
+			force_download($download,$file_name);
 		}
 
 	}

@@ -3,45 +3,122 @@
 	{
 		"selected_items":
 		[
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"file_",
+				"file_get_contents"
+			],
+			[
+				"mapel",
+				"mapel_kode"
+			],
+			[
+				"kelas",
+				"kelas_kode"
+			],
+			[
+				"maple",
+				"mapel_kode"
+			],
+			[
+				"Mapel",
+				"mapel_kode"
+			],
+			[
+				"materi",
+				"materi_mapel_mapel_kode"
+			],
+			[
+				"map",
+				"mapel_mapel_kode"
+			],
+			[
+				"ma",
+				"mapel"
+			],
+			[
+				"siswa",
+				"siswa_has_materi"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "<?php\n\nclass tugas_model extends CI_Model{\n	function getInput(){\n		$this->db->set('siswa_siswa_nis',$this->input->post('siswa_nis'));\n		$this->db->set('materi_materi_kode',$this->input->post('materi_kode'));\n		$this->db->set('materi_kelas_kelas_kode',$this->input->post('kelas_kode'));\n		$this->db->set('tugas_tanggalupload',date('Y-m-d'));\n	}\n\n	function create($path){\n		$this->getInput();\n		$this->db->set('tugas_upload', $this->config->item(\"upload_path_tugas\").$path);\n       	return $this->db->insert('siswa_has_materi');\n	}\n\n	\n\n	\n} \n\n?>",
-			"file": "application/models/tugas_model.php",
-			"file_size": 558,
-			"file_write_time": 130651791252668289,
-			"settings":
-			{
-				"buffer_size": 542,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/Management/_tugas/_tugas.php",
-			"settings":
-			{
-				"buffer_size": 3897,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "<div style=\"padding-left:15px\">                            \n    <div class=\"col-lg-12\">\n    	<div class=\"row\">\n    		<div class=\"panel panel-orange\">\n                <div class=\"panel-heading\">\n                    List Tugas Sdr. <?php echo $th ?>\n                </div>\n                <div class=\"panel-body pan\">\n	                <center>\n	                	<div class=\"pdf-container\">\n	               			<iframe src=\"<?php echo base_url().$dt_detail->materi_file.'.pdf';?>\" type=\"application/pdf\" width=\"1200\" height=\"700\"></iframe>\n	               		</div>\n	                </center>\n                </div>\n            </div>\n    	</div>\n    </div>\n</div>\n",
 			"file": "application/views/Management/_tugas/_listTugas.php",
-			"file_size": 0,
-			"file_write_time": 130652522669431639,
 			"settings":
 			{
-				"buffer_size": 660,
+				"buffer_size": 2357,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/controllers/siswa.php",
+			"file": "application/controllers/tugas.php",
 			"settings":
 			{
-				"buffer_size": 3814,
+				"buffer_size": 2417,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/models/guru_model.php",
+			"settings":
+			{
+				"buffer_size": 3602,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/models/tugas_model.php",
+			"settings":
+			{
+				"buffer_size": 1302,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/Management/_materi/_materi.php",
+			"settings":
+			{
+				"buffer_size": 9303,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/materi.php",
+			"settings":
+			{
+				"buffer_size": 3200,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/Management/_materi/_materi_viewer.php",
+			"settings":
+			{
+				"buffer_size": 725,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/guru.php",
+			"settings":
+			{
+				"buffer_size": 4311,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<div style=\"padding-left:15px\">                            \n    <div class=\"content-panel\"style=\"padding-left:10px;padding-right:10px\">\n                              <h4><i class=\"fa fa-angle-right\"></i> Daftar Tugas Siswa </h4>\n                              <hr>\n                              <table class=\"table\">\n                                      <thead>\n                                    <tr>\n                                        <th>#</th>                           \n                                        <th>NIS</th>\n                                        <th>Nama Siswa</th>\n                                        <th>Subject Tugas</th>\n                                        <th>Mata Pelajaran</th>\n                                        <th>Aksi</th>\n                                    </tr>\n                                    </thead>\n                                    <tbody>\n                                    <?php $no=1;\n                                    if($dt_siswa->num_rows()>0){\n                                    foreach($dt_siswa->result() as $siswa){\n                                        //$path=$materi->materi_file;\n                                        ?>\n                                    <tr>\n                                        <td><?php echo $no++?></td>\n                                        <td><?php echo $siswa->siswa_nis;?></td>\n                                        <td><?php echo $siswa->siswa_nm;?></td>\n                                        <td><?php echo $siswa->materi_nm?></td>\n                                        <td><?php echo $siswa->mapel_nm;?></td>\n                                       	<td><a href=\"#\">View</a></td>\n                                    </tr>\n                                    <?php }\n                                    }else{?>\n                                    <tr>\n                                        <td colspan=\"5\"><center>Tidak Ada Tugas</center></td>\n                                         </tr>\n                                      <?php }?>\n                                    </tbody>\n                              </table>\n                          </div>\n                      </div>  \n</div>\n\n \n                           ",
+			"file": "application/views/Management/_guru/_ListTugasSiswa.php",
+			"file_size": 2345,
+			"file_write_time": 130655544553557874,
+			"settings":
+			{
+				"buffer_size": 2255,
 				"line_ending": "Windows"
 			}
 		},
@@ -50,14 +127,6 @@
 			"settings":
 			{
 				"buffer_size": 13480,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/Management/_materi/_materi_viewer.php",
-			"settings":
-			{
-				"buffer_size": 732,
 				"line_ending": "Windows"
 			}
 		}
@@ -92,12 +161,26 @@
 		"/C/xampp/htdocs/new_elearning",
 		"/C/xampp/htdocs/new_elearning/application",
 		"/C/xampp/htdocs/new_elearning/application/controllers",
+		"/C/xampp/htdocs/new_elearning/application/models",
 		"/C/xampp/htdocs/new_elearning/application/views",
 		"/C/xampp/htdocs/new_elearning/application/views/Management",
-		"/C/xampp/htdocs/new_elearning/application/views/Management/_materi"
+		"/C/xampp/htdocs/new_elearning/application/views/Management/_guru",
+		"/C/xampp/htdocs/new_elearning/application/views/Management/_materi",
+		"/C/xampp/htdocs/new_elearning/upload"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/new_elearning/application/controllers/siswa.php",
+		"/C/xampp/htdocs/new_elearning/application/controllers/Auth.php",
+		"/C/xampp/htdocs/new_elearning/application/models/guru_model.php",
+		"/C/xampp/htdocs/new_elearning/application/views/Management/_guru/_ListTugasSiswa.php",
+		"/C/xampp/htdocs/new_elearning/application/views/Management/_tugas/_tugas.php",
+		"/C/xampp/htdocs/new_elearning/application/models/tugas_model.php",
+		"/C/xampp/htdocs/new_elearning/application/views/Management/_siswa/_siswa.php",
+		"/C/xampp/htdocs/new_elearning/application/controllers/tugas.php",
+		"/C/xampp/htdocs/new_elearning/application/views/index.php",
+		"/C/xampp/htdocs/new_elearning/application/controllers/mapel.php",
+		"/C/xampp/htdocs/new_elearning/application/controllers/kelas.php"
 	],
 	"find":
 	{
@@ -132,112 +215,54 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/models/tugas_model.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 542,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								532,
-								532
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "application/views/Management/_tugas/_tugas.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3897,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1968,
-								1968
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 113.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "application/views/Management/_tugas/_listTugas.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 660,
+						"buffer_size": 2357,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								244,
-								244
+								0,
+								2357
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "application/controllers/siswa.php",
+					"buffer": 1,
+					"file": "application/controllers/tugas.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3814,
+						"buffer_size": 2417,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3411,
-								3411
+								678,
+								678
 							]
 						],
 						"settings":
@@ -246,7 +271,66 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1101.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/models/guru_model.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3407,
+								3407
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 862.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/models/tugas_model.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1289,
+								1289
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -254,6 +338,152 @@
 				},
 				{
 					"buffer": 4,
+					"file": "application/views/Management/_materi/_materi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8218,
+								8238
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 209.0,
+						"translation.y": 1537.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/controllers/materi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2594,
+								2594
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/views/Management/_materi/_materi_viewer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 725,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								464,
+								464
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 215.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/controllers/guru.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4311,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4261,
+								4261
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 58.0,
+						"translation.y": 1341.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/views/Management/_guru/_ListTugasSiswa.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1697,
+								1697
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 73.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "application/config/config.php",
 					"semi_transient": false,
 					"settings":
@@ -277,37 +507,7 @@
 						"translation.y": 5091.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "application/views/Management/_materi/_materi_viewer.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 732,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								659,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -386,7 +586,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 230.0,
+	"side_bar_width": 355.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

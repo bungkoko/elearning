@@ -5,6 +5,9 @@ class guru extends CI_Controller{
 		$this->load->model('mapel_model');
 		$this->load->model('guru_model');
 		$this->load->model('role_model');
+		 if($this->session->userdata('user_logged')==false){
+            redirect('auth');
+        }
 	}
 
 	function index(){
@@ -105,6 +108,14 @@ class guru extends CI_Controller{
         $this->session->set_flashdata('message', 'status berita telah berhasil di ubah');
         redirect('guru');
     }
+
+  	function getTugasSiswa($kelas,$mapel){
+  		$guru=$this->session->userdata('user_no_induk');
+  		$data['pagetitle']='Daftar Tugas Siswa';
+  		$data['content']='management/_guru/_ListTugasSiswa';
+  		$data['dt_siswa']=$this->guru_model->getTugasSiswa($kelas,$mapel,$guru);
+  		$this->load->view('index',$data);
+  	}
 
 }
 ?>

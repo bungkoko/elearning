@@ -1,4 +1,4 @@
-<?php //if($this->session->userdata('user_role')=='guru'){?>
+<?php if($this->session->userdata('user_role')!='siswa'){?>
 <div class="row">
 <div class="col-md-5">
                                 
@@ -97,23 +97,42 @@
                 </div>
 
 
-                <?php// }elseif($this->session->userdata('user_role')=='siswa'){?>
-                    <div style="padding-left:15px">                            
-    <div class="col-lg-12">
-        <div class="row">
-            <div class="panel panel-orange">
-                <div class="panel-heading">
-                
+                <?php }else{?>
+<div class="col-md-12">
+                          <div class="content-panel"style="padding-left:10px;padding-right:10px">
+                              <h4><i class="fa fa-angle-right"></i> Daftar Materi</h4>
+                              <hr>
+                              <table class="table">
+                                      <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Mata Pelajaran</th>
+                                        <th>Kelas</th>
+                                        <th>Jenis Materi</th>
+                                        <th>Tanggal Join</th>
+                                        <th>Judul Materi</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php $no=1;
+                                    foreach($dt_materi as $materi){
+                                        //$data=file_get_contents($materi->materi_file);
+                                        ?>
+                                    <tr>
+                                        <td><?php echo $no++?></td>
+                                        <td><?php echo $materi->mapel_nm;?></td>
+                                        <td><?php echo $materi->kelas_nm;?></td>
+                                        <td><?php echo $materi->materi_jenis;?></td>
+                                        <td><?php echo $materi->materi_tanggalupload;?></td>
+                                        <td><?php echo $materi->materi_nm;?></td>
+                                        <td><a href="<?php echo site_url('materi/download')?>">Download</a>|<a href="<?php echo site_url('materi/getOneMateri').'/'.$materi->materi_kode;?>">View</a></td>
+                                    </tr>
+                                    <?php }?>
+                                    </tbody>
+                              </table>
+                          </div>
+                      </div>  
                 </div>
-                <div class="panel-body pan">
-                    <center>
-                        <div class="pdf-container">
-                            
-                        </div>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                <?php// }?>
+
+                <?php }?>
